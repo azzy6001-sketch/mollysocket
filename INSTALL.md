@@ -1,8 +1,6 @@
 # Installation
 
-This file shows how to install and configure mollysocket **on your system using a systemd service**.
-
-**This should be relevant if you use docker**
+This file shows how to install and configure mollysocket **on your system using a systemd service** or **Docker**.
 
 ## Install the binary with a dedicated user
 
@@ -38,6 +36,16 @@ You can enable it `systemctl enable --now mollysocket`, the service is now activ
 
 *If you host your own Push server*, then explicitly add it to the allowed endpoints. In `/etc/mollysocket/conf.toml`, edit `allowed_endpoints = ['*', 'https://push.mydomain.tld']` (remove `'*'` if you will use your push server only). Then restart the service `systemctl restart mollysocket`.
 
+## Install via docker
+1. If you do not have Docker installed already, [install it](https://docs.docker.com/engine/install/)
+2. Create a new directory and place [docker-compose.yml](https://github.com/azzy6001-sketch/mollysocket/blob/azzy6001-sketch-patch-1/docker-compose.yml) in it. You can also use [docker-compose-caddy.yml](https://github.com/azzy6001-sketch/mollysocket/blob/azzy6001-sketch-patch-1/docker-compose-caddy.yml) if you would like to use the webserver mode and do not already have a reverse proxy.
+3. Run `sudo docker compose run --rm mollysocket vapid gen` and paste the output into the `MOLLY_VAPID_PRIVKEY` environment variable
+4. If using air gapped mode, add `MOLLY_WEBSERVER=false` to environment variables. Then, run `docker compose up` and wait for a qr code, scan it in the Molly app by going to settings, notifications, delivery service, Unified Push, then tap scan qr code. After this, run `docker compose down`
+5. If using webserver mode with the docker-compose-caddy file, create a file named `Caddyfile` in the working directory and paste the Docker Caddyfile example shown in the Proxy Server section, make sure to change the domain to your domain
+6. If using air gapped mode, run `sudo docker compose run --rm mollysocket (parameters)` To get your parameters, go to settings, notifications, configure unified push, and tap "copy connection parameters". Once this is done, you can run `docker compose up -d`, your setup should now be complete
+7. If using webserver mode, run `docker compose up -d` and go to your domain, you should see a qr code. Scan it in the Molly app by going to settings, notifications, delivery service, Unified Push, then tap scan qr code, after this, your setup should be complete
+   
+**Note** *If you host your own Push server*, then explicitly add it to the allowed endpoints. In your `Docker-compose.yml` file, edit `MOLLY_ALLOWED_ENDPOINTS=["*"]` and add your domain, you can remove `*` if you plan to only use your push server. Remember to then run `docker compose up -d`
 
 ## (Option A) Proxy server
 
