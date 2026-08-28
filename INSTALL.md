@@ -57,6 +57,22 @@ For Nginx, it looks like:
     }
 ```
 
+For Caddy, it looks like 
+
+```
+example.com # replace with your domain {
+	reverse_proxy http://127.0.0.1:8020
+}
+```
+
+If you're using Docker, you can also use this Caddyfile
+
+```
+example.com # replace with your domain {
+	reverse_proxy http://mollysocket:8020
+}
+```
+
 ## (Option B) Air gapped mode
 
 To find the MollySocket QR code:
