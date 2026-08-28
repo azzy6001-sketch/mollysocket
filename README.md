@@ -28,7 +28,7 @@ graph TD
 ## Setup
 
 1. You can install MollySocket via:
-    1. Docker/Podman: `docker pull ghcr.io/mollyim/mollysocket:latest`
+    1. Docker/Podman: `docker pull ghcr.io/mollyim/mollysocket:latest` (Install instructions available in [INSTALL.md](INSTALL.md))
     2. Crates.io: `cargo install mollysocket` (see [INSTALL.md](INSTALL.md) for the setup) 
     3. Direct download: <https://github.com/mollyim/mollysocket/releases> (see [INSTALL.md](INSTALL.md) for the setup)
 2. A [distributor app](https://unifiedpush.org/users/distributors/) (easiest is [ntfy](https://f-droid.org/en/packages/io.heckel.ntfy/))
