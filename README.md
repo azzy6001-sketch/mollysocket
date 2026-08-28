@@ -28,7 +28,7 @@ graph TD
 ## Setup
 
 1. You can install MollySocket via:
-    1. Docker/Podman: `docker pull ghcr.io/mollyim/mollysocket:latest` (Install instructions available in [INSTALL.md](INSTALL.md))
+    1. Docker/Podman: `docker pull ghcr.io/mollyim/mollysocket:latest` 
     2. Crates.io: `cargo install mollysocket` (see [INSTALL.md](INSTALL.md) for the setup) 
     3. Direct download: <https://github.com/mollyim/mollysocket/releases> (see [INSTALL.md](INSTALL.md) for the setup)
 2. A [distributor app](https://unifiedpush.org/users/distributors/) (easiest is [ntfy](https://f-droid.org/en/packages/io.heckel.ntfy/))
@@ -39,7 +39,7 @@ For beginners, you can use a free service like ntfy.sh (do consider donating if 
 
 ## Web Server
 
-MollySocket exposes a web server so that Molly can send the information it needs to operate. You must configure TLS with a reverse proxy in front of MollySocket. Molly can only connect to the server over HTTPS. Examples for Nginx and Caddy are provided in [INSTALL.md](INSTALL.md).
+MollySocket exposes a web server so that Molly can send the information it needs to operate. You must configure TLS with a reverse proxy in front of MollySocket. Molly can only connect to the server over HTTPS. Reverse proxy examples are provided in the reverse_proxy_samples directory in this repo.
 
 It is possible to use MollySocket without the web server, but you will have to manually register the information MollySocket needs: see the **Air Gapped** mode on Android settings.
 
