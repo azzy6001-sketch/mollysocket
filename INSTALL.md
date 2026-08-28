@@ -54,7 +54,7 @@ For Nginx, it looks like:
     }
 ```
 
-**Note** More reverse proxy examples are available in the reverse_proxy_samples directory in this repo.
+**Note**: More reverse proxy examples are available in the reverse_proxy_samples directory in this repo.
 
 ## (Option B) Air gapped mode
 
