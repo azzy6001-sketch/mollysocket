@@ -39,7 +39,7 @@ For beginners, you can use a free service like ntfy.sh (do consider donating if 
 
 ## Web Server
 
-MollySocket exposes a web server so that Molly can send the information it needs to operate. You must configure TLS with a reverse proxy in front of MollySocket. Molly can only connect to the server over HTTPS. Examples for Nginx and Caddy are provided in [INSTALL.md](INSTALL.md).
+MollySocket exposes a web server so that Molly can send the information it needs to operate. You must configure TLS with a reverse proxy in front of MollySocket. Molly can only connect to the server over HTTPS. Examples for Nginx and Caddy are provided in [INSTALL.md](https://github.com/azzy6001-sketch/mollysocket/blob/main/INSTALL.md#option-a-proxy-server).
 
 It is possible to use MollySocket without the web server, but you will have to manually register the information MollySocket needs: see the **Air Gapped** mode on Android settings.
 
