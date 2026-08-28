@@ -73,7 +73,7 @@ example.com # replace with your domain {
 }
 ```
 
-If you're using docker-compose-caddy.yml file, you can use this Caddyfile
+If you're using the docker-compose-caddy.yml file, you can use this Caddyfile
 
 ```
 example.com # replace with your domain {
