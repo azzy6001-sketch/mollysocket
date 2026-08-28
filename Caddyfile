@@ -1,0 +1,3 @@
+example.com # replace with your domain {
+	reverse_proxy http://mollysocket:8020
+}

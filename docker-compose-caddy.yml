@@ -1,0 +1,44 @@
+services:
+  mollysocket:
+    image: ghcr.io/mollyim/mollysocket:1
+    container_name: mollysocket
+    restart: always
+    volumes:
+      - ./data:/data
+    networks:
+      - internal
+    working_dir: /data
+    command: server
+    environment:
+      - MOLLY_DB="/data/mollysocket.db"
+      # Do not add space in the array ["http://a.tld","*"]
+      - MOLLY_ALLOWED_ENDPOINTS=["*"] 
+      - MOLLY_ALLOWED_UUIDS=["*"]
+      - MOLLY_VAPID_PRIVKEY="CHANGE ME!" # run "sudo docker compose run --rm mollysocket vapid gen" and paste the output in
+      - RUST_LOG=debug
+    ports:
+      - "8020:8020"
+
+  caddy:
+    image: caddy:2
+    container_name: caddy-molly
+    restart: unless-stopped
+    depends_on:
+      - mollysocket
+    ports:
+      - "80:80"
+      - "443:443" # If you'd like to use a custom port, change the left port number to the port you want
+    command: ["caddy", "run", "--config", "/etc/caddy/Caddyfile"]
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy-data:/data
+      - caddy-config:/config
+    networks:
+      - internal
+
+networks:
+  internal:
+
+volumes:
+  caddy-data:
+  caddy-config:
