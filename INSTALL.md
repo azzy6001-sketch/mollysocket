@@ -1,10 +1,10 @@
 # Installation
 
-This file shows how to install and configure mollysocket **on your system using a systemd service** or **Docker**.
+This file shows how to install and configure Mollysocket **on your system using a systemd service** or **Docker**.
 
 ## Install the binary with a dedicated user
 
-First of all, you need to install mollysocket on your system.
+First of all, you need to install Mollysocket on your system.
 
 #### Create a dedicated account
 
